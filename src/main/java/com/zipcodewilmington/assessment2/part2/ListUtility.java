@@ -1,29 +1,60 @@
 package com.zipcodewilmington.assessment2.part2;
 
-import java.util.List;
+import com.j256.ormlite.stmt.query.In;
+
+import java.util.*;
 
 public class ListUtility {
-    public Boolean add(int i) {
-        return null;
+    List<Integer> list = new ArrayList<>();
+
+    public Boolean add(Integer i) {
+        return list.add(i);
     }
 
     public Integer size() {
-        return null;
+        return list.size();
     }
 
     public List<Integer> getUnique() {
-        return null;
+        Set<Integer> set = new TreeSet<>();
+        for (Integer i : list) {
+            set.add(i);
+        }
+
+        return new ArrayList<>(set);
     }
 
     public String join() {
-        return null;
+        String joined = "";
+
+        for (int i = 0; i < list.size(); i++) {
+            if(i < (list.size() - 1)) {
+                joined += list.get(i) + ", ";
+            } else {
+                joined += list.get(i);
+            }
+
+        }
+
+        return joined;
     }
 
     public Integer mostCommon() {
-        return null;
+        Integer mostCommon = 0;
+        Integer mostCommonCount = 0;
+
+        for (Integer i : list) {
+            Integer currentCount = Collections.frequency(list, i);
+            if(currentCount > mostCommonCount) {
+                mostCommon = i;
+                mostCommonCount = currentCount;
+            }
+        }
+
+        return mostCommon;
     }
 
     public Boolean contains(Integer valueToAdd) {
-        return null;
+        return list.contains(valueToAdd);
     }
 }
