@@ -41,15 +41,15 @@ public class Router {
 
         for (Map.Entry e : map.entrySet()) {
 
-            List<String> list = (ArrayList)e.getValue();
-                result += e.getKey() + list.get(0) + "\n";
+            ArrayList list = (ArrayList)e.getValue();
+                result += e.getKey() + (String)list.get(0) + "\n";
         }
 
         for (Map.Entry e : map.entrySet()) {
-            List<String> list = (ArrayList)e.getValue();
+            ArrayList list = (ArrayList)e.getValue();
             if (list.size() > 1) {
                 for (int i = 1; i < list.size(); i++) {
-                    result += e.getKey() + list.get(i) + "\n";
+                    result += e.getKey() + (String)list.get(i) + "\n";
                 }
             }
         }
